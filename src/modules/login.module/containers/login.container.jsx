@@ -3,9 +3,13 @@ import { LoginComponent } from '../components'
 import { Login } from '../store/actions'
 import { connect } from 'react-redux'
 
-@connect()
+@connect(store => ({ auth: store.auth })) //TODO realized selectors 
 export class LoginContainer extends Component {
+    constructor(props) {
+        super();
+        console.log(props)
+    }
     title = 'Login works';
-    login = () => this.props.dispatch(Login)
-    render = () => <LoginComponent {...this} />
+    login = () => this.props.dispatch(Login);
+    render = () => <LoginComponent {...this} {...this.props} />
 }

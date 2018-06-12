@@ -3,17 +3,18 @@ import initialValue from './store';
 import produce from 'immer'
 import { logTime } from '../utils'
 
-export const loginReducer = (store = initialValue, action) => {
-    produce(state, draft => {
+export const loginReducer = (store = initialValue, action) =>
+    produce(store, draft => {
         switch (action.type) {
             case constants.LOGIN_SUCCESS: {
-                state.auth = true;
-                state.success.push(logTime())
+                draft.auth = true;
+                draft.success.push(logTime());
+                break;
             }
             case constants.LOGIN_FAIL: {
-                state.auth = false;
-                state.fail.push(logTime())
+                draft.auth = false;
+                draft.fail.push(logTime());
+                break;
             }
         }
     })
-}

@@ -6,8 +6,8 @@ const postConfig = {
     body: JSON.stringify({ date: new Date().getSeconds() }),
 }
 
-export const loginRequest = () => (
+export const loginRequest = () =>
     fetch(end + 'login', {
         method: 'get'
     })
-)
+        .then(res => res.json())
