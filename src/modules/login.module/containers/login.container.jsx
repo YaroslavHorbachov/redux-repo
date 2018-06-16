@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { LoginComponent } from '../components'
-import { Login } from '../store/actions'
+import { Login } from '../store/login.actions'
 import { connect } from 'react-redux'
 
 @connect(store => ({ auth: store.auth })) //TODO realized selectors 
